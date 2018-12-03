@@ -27,13 +27,12 @@
             </Pane>
             <Button layoutX="148.0" layoutY="433.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="93.0" styleClass="Btn" text="XÓA" />
             <Button layoutX="305.0" layoutY="433.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="93.0" styleClass="Btn" text="SỬA" />
-            <TableView layoutX="14.0" layoutY="40.0" prefHeight="368.0" prefWidth="532.0">
+            <TableView layoutX="14.0" layoutY="20.0" prefHeight="388.0" prefWidth="528.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
-            <Label layoutX="14.0" layoutY="15.0" prefHeight="17.0" prefWidth="245.0" styleClass="Title" text="Danh sách bàn đã đặt" />
          </children>
       </Pane>
    </center>
