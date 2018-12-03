@@ -37,7 +37,16 @@ public class HomeController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        try {
+//            Connection cnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quanlyquancafe", "root", "123456");
+//        } catch (SQLException ex) {
+//            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }    
     
 }

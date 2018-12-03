@@ -1,0 +1,41 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.Pane {
+    -fx-background-color: #fff
+}
+.LabelHeader {
+    -fx-font-size: 40;
+    -fx-font-family: Avenir;
+    -fx-alignment: CENTER;
+    -fx-background-color: #669900;
+    -fx-text-fill: #ffffff
+}
+
+.ListView {
+    -fx-background-color: #ffffff;
+}
+.PaneInfo{
+    -fx-background-color: #ffffff;
+}
+.Title {
+   -fx-font-size: 15
+}
+.Input {
+   -fx-font-size: 18;
+   -fx-padding: 1 1 1 1;
+   -fx-border-color: grey;
+   -fx-border-width: 2;
+   -fx-border-radius: 1;
+   -fx-border: gone;
+   -fx-background-color: transparent;
+   -fx-text-fill: grey;
+}
+.Btn {
+    -fx-font-size: 15;
+    -fx-text-fill: rgb(49, 89, 23);
+    -fx-border-color: rgb(49, 89, 23);
+    -fx-border-radius: 5;
+    -fx-padding: 3 3 3 3;
+}
