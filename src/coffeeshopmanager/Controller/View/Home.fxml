@@ -8,29 +8,32 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="601.0" stylesheets="@../../CSS/Home.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffeeshopmanager.Controller.HomeController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="610.0" stylesheets="@../../CSS/Home.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffeeshopmanager.Controller.HomeController">
    <children>
-      <Button layoutX="366.0" layoutY="318.0" mnemonicParsing="false" onAction="#callMenuScene" prefHeight="37.0" prefWidth="144.0" styleClass="Btn" text="Menu" />
-      <Button layoutX="92.0" layoutY="318.0" mnemonicParsing="false" onAction="#callTableInfoScene" styleClass="Btn" text="Thông tin bàn" />
-      <GridPane prefHeight="160.0" prefWidth="601.0" styleClass="GrPane">
+      <Button layoutX="233.0" layoutY="244.0" mnemonicParsing="false" onAction="#callMenuScene" prefHeight="37.0" prefWidth="144.0" styleClass="Btn" text="Menu" />
+      <Button layoutX="45.0" layoutY="244.0" mnemonicParsing="false" onAction="#callTableInfoScene" styleClass="Btn" text="Thông tin bàn" />
+      <GridPane prefHeight="160.0" prefWidth="622.0" styleClass="GrPane">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="470.0" minWidth="10.0" prefWidth="457.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="470.0" minWidth="10.0" prefWidth="58.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="545.0" minWidth="10.0" prefWidth="542.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="10.0" prefWidth="144.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="159.0" minHeight="10.0" prefHeight="132.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="159.0" minHeight="10.0" prefHeight="43.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="159.0" minHeight="10.0" prefHeight="96.0" valignment="CENTER" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="34.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label prefHeight="35.0" prefWidth="301.0" styleClass="Label" text="Coffee Tình" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
-            <Label alignment="CENTER" styleClass="LabelDCSDT" text="Địa chỉ: 371 Nguyễn Kiệm" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-            <Label styleClass="LabelDCSDT" text="SDT: 100xxxx" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Label prefHeight="35.0" prefWidth="301.0" styleClass="Label" text="Coffee Tình" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" styleClass="LabelDCSDT" text="Địa chỉ: 371 Nguyễn Kiệm" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Label styleClass="LabelDCSDT" text="SDT: 100xxxx" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
             </Label>
+            <Button mnemonicParsing="false" onAction="#callLogIn" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #cc5200;" text="Đăng Xuất" textFill="WHITE" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="228.0" layoutY="224.0" mnemonicParsing="false" onAction="#callBookScene" prefHeight="37.0" prefWidth="144.0" styleClass="Btn" text="Đặt bàn" />
+      <Button layoutX="413.0" layoutY="244.0" mnemonicParsing="false" onAction="#callBookScene" prefHeight="37.0" prefWidth="144.0" styleClass="Btn" text="Đặt bàn" />
    </children>
 </Pane>

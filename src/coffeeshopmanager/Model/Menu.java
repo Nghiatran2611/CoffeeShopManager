@@ -14,10 +14,16 @@ public class Menu {
     private String name;
     private int giaTien;
     private int loai;
-    private int tinhTrang;
+    private String tinhTrang;
     
-    public Menu(int id, String name, int giaTien, int loai, int tinhTrang) {
+    public Menu(int id, String name, int giaTien, int loai, String tinhTrang) {
         this.id = id;
+        this.name = name;
+        this.giaTien = giaTien;
+        this.loai = loai;
+        this.tinhTrang = tinhTrang;
+    }
+    public Menu(String name, int giaTien, int loai, String tinhTrang) {
         this.name = name;
         this.giaTien = giaTien;
         this.loai = loai;
@@ -88,14 +94,14 @@ public class Menu {
     /**
      * @return the tinhTrang
      */
-    public int getTinhTrang() {
+    public String getTinhTrang() {
         return tinhTrang;
     }
 
     /**
      * @param tinhTrang the tinhTrang to set
      */
-    public void setTinhTrang(int tinhTrang) {
+    public void setTinhTrang(String tinhTrang) {
         this.tinhTrang = tinhTrang;
     }
     

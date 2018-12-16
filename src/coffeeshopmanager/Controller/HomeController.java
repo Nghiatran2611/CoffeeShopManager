@@ -35,6 +35,10 @@ public class HomeController implements Initializable {
         sm = new SceneMovement();
         sm.callNewScene(event, "Book");
     }
+    @FXML private void callLogIn(ActionEvent event) throws IOException {
+        sm = new SceneMovement();
+        sm.callNewScene(event, "Login");
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 //        try {

@@ -5,8 +5,11 @@
  */
 package coffeeshopmanager.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -16,6 +19,7 @@ import javafx.fxml.Initializable;
  */
 public class BookController implements Initializable {
 
+    SceneMovement sm;
     /**
      * Initializes the controller class.
      */
@@ -23,5 +27,8 @@ public class BookController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+    @FXML private void callBack(ActionEvent event) throws IOException {
+        sm = new SceneMovement();
+        sm.callNewScene(event, "Home");
+    }
 }

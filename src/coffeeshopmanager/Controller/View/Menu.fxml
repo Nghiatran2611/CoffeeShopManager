@@ -6,42 +6,58 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="758.0" styleClass="borderPane" stylesheets="@../../CSS/Menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffeeshopmanager.Controller.MenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="758.0" styleClass="borderPane" stylesheets="@../../CSS/Menu.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffeeshopmanager.Controller.MenuController">
    <top>
       <Pane prefHeight="54.0" prefWidth="721.0" styleClass="PaneHeader" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="-1.0" layoutY="-1.0" prefHeight="58.0" prefWidth="758.0" styleClass="TitleHeader" text="MENU" />
+            <Button layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#callBack" styleClass="BtnBack" text="Trở về">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Image/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
    </top>
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" styleClass="Pane" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="404.0" prefWidth="745.0">
+            <VBox prefHeight="404.0" prefWidth="745.0" styleClass="VBox">
                <children>
                   <Label prefHeight="21.0" prefWidth="75.0" styleClass="Title" text="Thức ăn" />
-                  <TableView prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="tbThucAn" onMouseClicked="#handleClickTbThucAn" prefHeight="200.0" prefWidth="500.0">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
+                        <TableColumn fx:id="maMon" prefWidth="74.0" text="Mã Món" />
+                        <TableColumn fx:id="tenMon" prefWidth="212.0" text="Tên Món" />
+                        <TableColumn fx:id="giaTien" maxWidth="126.0" minWidth="-1.0" prefWidth="118.0" text="Giá Tiền" />
+                        <TableColumn fx:id="tinhTrang" maxWidth="182.0" minWidth="-1.0" prefWidth="95.0" text="Tình Trạng" />
                      </columns>
                   </TableView>
                   <Label prefHeight="31.0" prefWidth="113.0" styleClass="Title" text="Nước uống" />
-                  <TableView prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="tbDoUong" onMouseClicked="#handleClickTbDoUong" prefHeight="191.0" prefWidth="500.0">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
+                        <TableColumn fx:id="maMon2" prefWidth="75.0" text="Mã Món" />
+                        <TableColumn fx:id="tenMon2" prefWidth="213.0" text="Tên Món" />
+                        <TableColumn fx:id="giaTien2" prefWidth="118.0" text="Giá Tiền" />
+                        <TableColumn fx:id="tinhTrang2" prefWidth="106.0" text="Tình Trạng" />
                      </columns>
                   </TableView>
                   <Pane prefHeight="63.0" prefWidth="510.0">
                      <children>
-                        <Button layoutX="117.0" layoutY="7.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="73.0" styleClass="Btn" text="XÓA" />
-                        <Button layoutX="310.0" layoutY="7.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="73.0" styleClass="Btn" text="SỬA" />
+                        <Button layoutX="117.0" layoutY="7.0" mnemonicParsing="false" onAction="#deleteMenuItem" prefHeight="29.0" prefWidth="73.0" styleClass="Btn" text="XÓA" />
+                        <Button layoutX="310.0" layoutY="7.0" mnemonicParsing="false" onAction="#updateMenu" prefHeight="29.0" prefWidth="73.0" styleClass="Btn" text="SỬA" />
                      </children>
                   </Pane>
                </children>
@@ -51,14 +67,20 @@
                   <Label layoutX="9.0" layoutY="91.0" styleClass="Title" text="Tên món: " />
                   <Label layoutX="9.0" layoutY="194.0" styleClass="Title" text="Giá tiền:" />
                   <Label layoutX="9.0" layoutY="240.0" styleClass="Title" text="Tình trạng:" />
-                  <RadioButton layoutX="92.0" layoutY="127.0" mnemonicParsing="false" text="Thức ăn" />
-                  <RadioButton layoutX="92.0" layoutY="155.0" mnemonicParsing="false" text="Nước uống" />
-                  <TextField layoutX="90.0" layoutY="87.0" prefHeight="27.0" prefWidth="145.0" />
-                  <TextField layoutX="90.0" layoutY="190.0" prefHeight="27.0" prefWidth="146.0" />
-                  <Button layoutX="88.0" layoutY="422.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="73.0" styleClass="Btn" text="THÊM" />
+                  <RadioButton fx:id="rdDoAn" layoutX="92.0" layoutY="127.0" mnemonicParsing="false" selected="true" text="Thức ăn">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="loai" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="rdDoUong" layoutX="92.0" layoutY="155.0" mnemonicParsing="false" text="Nước uống" toggleGroup="$loai" />
+                  <TextField fx:id="txtTenMon" layoutX="90.0" layoutY="87.0" prefHeight="27.0" prefWidth="145.0" />
+                  <TextField fx:id="txtGiaTien" layoutX="90.0" layoutY="190.0" prefHeight="27.0" prefWidth="146.0" />
+                  <Button layoutX="83.0" layoutY="426.0" mnemonicParsing="false" onAction="#addMenuItem" prefHeight="29.0" prefWidth="88.0" styleClass="Btn" text="XÁC NHẬN" />
                   <Label layoutX="11.0" layoutY="145.0" styleClass="Title" text="Loại: " />
-                  <RadioButton layoutX="96.0" layoutY="232.0" mnemonicParsing="false" text="Còn món" />
-                  <RadioButton layoutX="96.0" layoutY="260.0" mnemonicParsing="false" text="Đã hết" />
+                  <RadioButton fx:id="rdCon" layoutX="96.0" layoutY="232.0" mnemonicParsing="false" selected="true" text="Còn món">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="tinhtrang" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="rdHet" layoutX="96.0" layoutY="260.0" mnemonicParsing="false" text="Đã hết" toggleGroup="$tinhtrang" />
                </children>
             </Pane>
          </children>
