@@ -120,10 +120,9 @@ public class TableInfoController implements Initializable {
             if (completeCheck()) {
                 tableInfoDAO = new TableInfoDAO();
                 RadioButton selectedRB = (RadioButton) tinhtrang.getSelectedToggle();
-
-                TableInfo table = new TableInfo(txtSucChua.getText(), txtViTri.getText(), selectedRB.getText());
-                TableInfo table1 = new TableInfo(id, txtSucChua.getText(), txtViTri.getText(), selectedRB.getText());
+                String selectedValue = selectedRB.getText();
                 if(checkUpdate == false){
+                    TableInfo table = new TableInfo(txtSucChua.getText(), txtViTri.getText(), selectedValue);
                     if (tableInfoDAO.inserttableInfo(table)) {
                         sm = new SceneMovement();
                         sm.callConfirmAlert("Thêm thành công");
@@ -133,6 +132,7 @@ public class TableInfoController implements Initializable {
                     }
                 }
                 else {
+                    TableInfo table1 = new TableInfo(id, txtSucChua.getText(), txtViTri.getText(), selectedRB.getText());
                     if (tableInfoDAO.updateTableInfoItem(table1)) {
                         sm = new SceneMovement();
                         sm.callConfirmAlert("Chỉnh sửa thành công");
@@ -145,7 +145,9 @@ public class TableInfoController implements Initializable {
                 txtSucChua.setText("");
                 txtViTri.setText("");
                 tinhtrang.selectToggle(rdCon);
-            }        
+            }   
+            list1 = getTableInfo();
+            loadtableInfo();
     }
     
     //Delete TableInfo Item
@@ -161,5 +163,7 @@ public class TableInfoController implements Initializable {
             sm = new SceneMovement();
             sm.callErrorAlert("Xóa thất bại");
         }
+        list1 = getTableInfo();
+        loadtableInfo();
     }
 }

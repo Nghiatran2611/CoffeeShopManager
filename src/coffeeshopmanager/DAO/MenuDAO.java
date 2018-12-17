@@ -88,7 +88,7 @@ public class MenuDAO {
             ps.setString(1, menu.getName());
             ps.setInt(2, menu.getGiaTien());
             ps.setInt(3, menu.getLoai());
-            if( menu.getTinhTrang() == "Đã hết")
+            if( "Đã hết".equals(menu.getTinhTrang()))
                 tt = 1;
             ps.setInt(4, tt);            
             i = 0;
@@ -108,7 +108,7 @@ public class MenuDAO {
             ps.setString(1, menu.getName());
             ps.setInt(2, menu.getGiaTien());
             ps.setInt(3, menu.getLoai());
-            if( menu.getTinhTrang() == "Đã hết")
+            if( "Đã hết".equals(menu.getTinhTrang()))
                 tt = 1;
             ps.setInt(4, tt);
              ps.setInt(5, menu.getId());

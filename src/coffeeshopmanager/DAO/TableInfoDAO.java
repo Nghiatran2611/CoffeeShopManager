@@ -61,7 +61,7 @@ public class TableInfoDAO {
         try (PreparedStatement ps = dp.getConnection().prepareStatement(sql)) {
             ps.setString(1, tableinfo.getSucChua());
             ps.setString(2, tableinfo.getViTri());
-            if( tableinfo.getTinhTrang() == "Đã hết")
+            if( "Đã đặt".equals(tableinfo.getTinhTrang()))
                 tt = 1;
             ps.setInt(3, tt);
             i = 0;
@@ -80,7 +80,7 @@ public class TableInfoDAO {
         try (PreparedStatement ps = dp.getConnection().prepareStatement(sql)) {
             ps.setString(1, tableinfo.getSucChua());
             ps.setString(2, tableinfo.getViTri());
-            if( tableinfo.getTinhTrang() == "Đã hết")
+            if( "Đã đặt".equals(tableinfo.getTinhTrang()))
                 tt = 1;
             ps.setInt(3, tt);
              ps.setInt(4, tableinfo.getMaBan());

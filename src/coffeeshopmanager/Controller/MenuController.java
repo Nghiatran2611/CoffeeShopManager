@@ -164,9 +164,9 @@ public class MenuController implements Initializable {
             loai.selectToggle(rdDoAn);
         else if(mn.getLoai() == 1)
            loai.selectToggle(rdDoUong);
-        if(mn.getTinhTrang() == "Còn món")
+        if("Còn món".equals(mn.getTinhTrang()))
             tinhtrang.selectToggle(rdCon);
-        else if(mn.getTinhTrang() == "Đã hết")
+        else if("Đã hết".equals(mn.getTinhTrang()))
            tinhtrang.selectToggle(rdHet);
         checkUpdate = true;
         }
@@ -182,7 +182,11 @@ public class MenuController implements Initializable {
                 RadioButton selectedTTRB = (RadioButton) tinhtrang.getSelectedToggle();
                 int giaTien = Integer.valueOf(txtGiaTien.getText());
                 int l = 0;
-                if(selectedLoaiRB.getText() == "Nước uống") l = 1;
+                
+                if("Nước uống".equals(selectedLoaiRB.getText())) {
+                     l = 1;
+                     System.out.println(l);
+                }
                 Menu menu = new Menu(txtTenMon.getText(), giaTien, l, selectedTTRB.getText());
                 Menu menu1 = new Menu(id, txtTenMon.getText(), giaTien, l, selectedTTRB.getText());
                 if(checkUpdate == false){
@@ -208,7 +212,11 @@ public class MenuController implements Initializable {
                 txtGiaTien.setText("");
                 loai.selectToggle(rdDoAn);
                 tinhtrang.selectToggle(rdCon);
-            }        
+            }      
+            list1 = getMenuThuAn();
+            loadMenuDoAn();
+            list2 = getMenuThucUong();
+            loadMenuThucUong();
     }
     
     //Delete Menu Item
@@ -228,7 +236,11 @@ public class MenuController implements Initializable {
             sm = new SceneMovement();
             sm.callErrorAlert("Xóa thất bại");
         }
-        }        
+        }     
+        list1 = getMenuThuAn();
+        loadMenuDoAn();
+        list2 = getMenuThucUong();
+        loadMenuThucUong();
     }
     
     //Check before update or insert
