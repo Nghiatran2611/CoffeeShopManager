@@ -20,7 +20,7 @@ public class CoffeeShopManager extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setResizable(false);
-        Parent root = FXMLLoader.load(getClass().getResource("Controller/View/Menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Controller/View/Login.fxml"));
         
         Scene scene = new Scene(root);
         

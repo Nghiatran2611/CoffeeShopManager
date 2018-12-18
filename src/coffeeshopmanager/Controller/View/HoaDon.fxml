@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../CSS/hoadon.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffeeshopmanager.Controller.HoaDonController">
+   <children>
+      <Pane prefHeight="140.0" prefWidth="600.0" styleClass="PaneHeader">
+         <children>
+            <Label layoutX="208.0" layoutY="-1.0" styleClass="TitleHeader" text="HÓA ĐƠN" />
+            <Button layoutX="6.0" layoutY="7.0" mnemonicParsing="false" onAction="#callBack" styleClass="BtnBack" text="Trở về">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" styleClass="BtnBack">
+                     <image>
+                        <Image url="@../../Image/back.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <HBox prefHeight="379.0" prefWidth="600.0">
+         <children>
+            <TableView fx:id="listHoaDon" prefHeight="298.0" prefWidth="254.0">
+               <columns>
+                  <TableColumn fx:id="maHoaDon" prefWidth="126.0" text="Mã Hóa Đơn" />
+                  <TableColumn fx:id="maBan" prefWidth="126.0" text="Mã Bàn" />
+               </columns>
+            </TableView>
+            <Pane prefHeight="298.0" prefWidth="346.0">
+               <children>
+                  <TableView fx:id="tbTableInfo" layoutY="41.0" prefHeight="260.0" prefWidth="346.0">
+                     <columns>
+                        <TableColumn fx:id="maBan2" prefWidth="54.0" text="Mã Bàn" />
+                        <TableColumn fx:id="sucChua" prefWidth="83.0" text="Số Chỗ Ngồi" />
+                        <TableColumn fx:id="viTri" prefWidth="135.0" text="Vị Trí" />
+                        <TableColumn fx:id="tinhTrang" prefWidth="73.0" text="Tình Trạng" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="95.0" layoutY="1.0" text="Thêm Hóa đơn">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <Pane prefHeight="123.0" prefWidth="600.0">
+         <children>
+            <Button layoutX="129.0" layoutY="7.0" mnemonicParsing="false" onAction="#callChiTiet" styleClass="Btn" text="Chi Tiết" />
+            <Button layoutX="406.0" layoutY="7.0" mnemonicParsing="false" onAction="#addHoaDon" styleClass="Btn" text="Thêm" />
+            <Button layoutX="54.0" layoutY="7.0" mnemonicParsing="false" onAction="#deleteHoaDonItem" prefHeight="29.0" prefWidth="58.0" styleClass="Btn" text="Xóa" />
+         </children>
+      </Pane>
+   </children>
+</VBox>

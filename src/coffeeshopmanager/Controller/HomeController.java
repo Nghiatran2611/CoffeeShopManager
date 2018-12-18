@@ -33,7 +33,7 @@ public class HomeController implements Initializable {
     @FXML
     private void callBookScene(ActionEvent event) throws IOException {
         sm = new SceneMovement();
-        sm.callNewScene(event, "Book");
+        sm.callNewScene(event, "HoaDon");
     }
     @FXML private void callLogIn(ActionEvent event) throws IOException {
         sm = new SceneMovement();
