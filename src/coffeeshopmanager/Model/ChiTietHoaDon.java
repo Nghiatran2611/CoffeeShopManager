@@ -11,13 +11,13 @@ package coffeeshopmanager.Model;
  */
 public class ChiTietHoaDon {
     private int maChiTietHoaDon;
-    private int maBan;
+    private int maHoaDon;
     private int maMon;
     private int soLuong;
     
-    public ChiTietHoaDon(int maChiTietHoaDon, int maBan, int maMon, int soLuong){
+    public ChiTietHoaDon(int maChiTietHoaDon, int maHoaDon, int maMon, int soLuong){
         this.maChiTietHoaDon = maChiTietHoaDon;
-        this.maBan = maBan;
+        this.maHoaDon = maHoaDon;
         this.maMon = maMon;
         this.soLuong = soLuong;
     }
@@ -34,20 +34,6 @@ public class ChiTietHoaDon {
      */
     public void setMaChiTietHoaDon(int maChiTietHoaDon) {
         this.maChiTietHoaDon = maChiTietHoaDon;
-    }
-
-    /**
-     * @return the maBan
-     */
-    public int getMaBan() {
-        return maBan;
-    }
-
-    /**
-     * @param maBan the maBan to set
-     */
-    public void setMaBan(int maBan) {
-        this.maBan = maBan;
     }
 
     /**
@@ -76,6 +62,20 @@ public class ChiTietHoaDon {
      */
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
+    }
+
+    /**
+     * @return the maHoaDon
+     */
+    public int getMaHoaDon() {
+        return maHoaDon;
+    }
+
+    /**
+     * @param maHoaDon the maHoaDon to set
+     */
+    public void setMaHoaDon(int maHoaDon) {
+        this.maHoaDon = maHoaDon;
     }
 
 }

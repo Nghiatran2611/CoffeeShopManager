@@ -60,7 +60,7 @@ public class BookController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadtableInfo();
+        loadCTHD();
         loadMenu();
     }    
     @FXML private void callBack(ActionEvent event) throws IOException {
@@ -98,9 +98,9 @@ public class BookController implements Initializable {
         return list2;
     } 
     
-     private void loadtableInfo() {
+     private void loadCTHD() {
         maCTHoaDon.setCellValueFactory(new PropertyValueFactory<>("maChiTietHoaDon"));
-        maHoaDon.setCellValueFactory(new PropertyValueFactory<>("maBan"));
+        maHoaDon.setCellValueFactory(new PropertyValueFactory<>("maHoaDon"));
         maMon.setCellValueFactory(new PropertyValueFactory<>("maMon"));
         soLuong.setCellValueFactory(new PropertyValueFactory<>("soLuong"));
         tbCTHD.setItems(list);
@@ -110,9 +110,46 @@ public class BookController implements Initializable {
         maMon2.setCellValueFactory(new PropertyValueFactory<>("id"));
         tenMon.setCellValueFactory(new PropertyValueFactory<>("name"));
         giaTien.setCellValueFactory(new PropertyValueFactory<>("giaTien"));
-        tinhTrang.setCellValueFactory(new PropertyValueFactory<>("tinhTrang"));
+        tinhTrang.setCellValueFactory(new PropertyValueFactory<>("tinhTra0ng"));
         tbMenu.setItems(list2);
         
+    }
+    
+    @FXML private void addSoLuong(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+        menu = new MenuDAO();
+        Menu mn = tbMenu.getSelectionModel().getSelectedItem();
+//        int idHD = HoaDonDAO.getHoaDon().getMaHoaDon();
+        if(mn != null){
+            menu.setMenuItem(mn);
+            sm = new SceneMovement();
+            sm.callNewScene(event, "ThemSoLuong");
+        }
+        else {
+            sm = new SceneMovement();
+            sm.callConfirmAlert("Chọn một Hóa đơn để xem chi tiết!");
+        }
+        
+    }
+    
+     @FXML private void removeItem(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+        chitietDAO = new ChiTietHoaDonDAO();
+        ChiTietHoaDon chitietHD = tbCTHD.getSelectionModel().getSelectedItem();
+       if(chitietHD != null){
+        int id = chitietHD.getMaChiTietHoaDon();
+        if (chitietDAO.reverseChiTietHoaDonItem(id)) {
+            sm = new SceneMovement();
+            sm.callConfirmAlert("Xóa thành công");
+        } else {
+            sm = new SceneMovement();
+            sm.callErrorAlert("Xóa thất bại");
+        }}
+       else{
+           sm = new SceneMovement();
+            sm.callErrorAlert("Chọn 1 hóa đơn muốn xóa");
+       }
+          
+        list = getHoaDon();
+        loadCTHD();
     }
     
 }

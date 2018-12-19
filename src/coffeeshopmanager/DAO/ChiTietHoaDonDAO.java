@@ -46,11 +46,26 @@ public class ChiTietHoaDonDAO {
         dp.closeDB();
         return chitiet;
     }
-    
+    //Insert CTHD
+    public boolean insertCTHD(int maHoaDon, int maMon, int soLuong) throws SQLException, ClassNotFoundException {
+        String sql = "INSERT INTO chitiethoadon (MaHoaDon, MaMon, SoLuong)"
+                + "VALUES (?,?,?)";
+        int i;
+        int tt = 0;
+        try (PreparedStatement ps = dp.getConnection().prepareStatement(sql)) {
+            ps.setInt(1,maHoaDon);
+            ps.setInt(2,maMon);
+            ps.setInt(3,soLuong);
+            i = 0;
+            i = ps.executeUpdate();
+        }
+        dp.closeDB();
+        return i != 0;
+    }
     
     //Make deleted ChiTietHoaDon item
     public boolean reverseChiTietHoaDonItem(int id) throws SQLException, ClassNotFoundException {
-        String sql = "DELETE FROM menu WHERE MaMon = ?";
+        String sql = "DELETE FROM chitiethoadon WHERE MaChiTietHoaDon = ?";
         int i;
         try (PreparedStatement ps = dp.getConnection().prepareStatement(sql)) {
             ps.setInt(1, id);

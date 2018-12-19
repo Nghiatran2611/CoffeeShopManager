@@ -104,7 +104,8 @@ public class TableInfoController implements Initializable {
     @FXML
     public void updateTableInfo(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         TableInfo tb = tbTableInfo.getSelectionModel().getSelectedItem();
-        id = tb.getMaBan();
+        if(tb != null){
+            id = tb.getMaBan();
         txtSucChua.setText(tb.getSucChua());
         txtViTri.setText(tb.getViTri());
         if(tb.getTinhTrang() == "Còn bàn")
@@ -112,6 +113,11 @@ public class TableInfoController implements Initializable {
         else if(tb.getTinhTrang() == "Đã đặt")
            tinhtrang.selectToggle(rdHet);
         checkUpdate = true;
+        }
+        else{
+            sm = new SceneMovement();
+            sm.callConfirmAlert("Chọn 1 bàn muốn sửa");
+        }
     }
     
     //Insert or Update TableInfo
@@ -155,14 +161,23 @@ public class TableInfoController implements Initializable {
     public void deleteTableInfo(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         tableInfoDAO = new TableInfoDAO();
         TableInfo tb = tbTableInfo.getSelectionModel().getSelectedItem();
-        int id = tb.getMaBan();
-        if (tableInfoDAO.reverseTableInfo(id)) {
+        System.out.print(tb);
+        
+        if(tb == null){
             sm = new SceneMovement();
-            sm.callConfirmAlert("Xóa thành công");
-        } else {
-            sm = new SceneMovement();
-            sm.callErrorAlert("Xóa thất bại");
+            sm.callErrorAlert("Chọn 1 bàn muốn xóa");
         }
+        else{
+            int id = tb.getMaBan();
+            if (tableInfoDAO.reverseTableInfo(id)) {
+                sm = new SceneMovement();
+                sm.callConfirmAlert("Xóa thành công");
+            } else {
+                sm = new SceneMovement();
+                sm.callErrorAlert("Xóa thất bại");
+            }
+        }
+       
         list1 = getTableInfo();
         loadtableInfo();
     }

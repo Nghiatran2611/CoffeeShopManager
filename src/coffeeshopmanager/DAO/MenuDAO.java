@@ -131,4 +131,12 @@ public class MenuDAO {
         dp.closeDB();
         return i != 0;
     }
+    
+     //Save User
+    public static Menu getMenuItem(){
+        return menu;
+    }
+     public static void setMenuItem(Menu menu) {
+        MenuDAO.menu = menu;
+    }
 }

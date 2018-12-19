@@ -112,8 +112,8 @@ public class HoaDonController implements Initializable {
         HoaDon hDon = listHoaDon.getSelectionModel().getSelectedItem();
         if(hDon != null){
             hdDAO.setHoaDon(hDon);
-        sm = new SceneMovement();
-        sm.callNewScene(event, "Book");
+            sm = new SceneMovement();
+            sm.callNewScene(event, "Book");
         }
         else {
             sm = new SceneMovement();
@@ -130,15 +130,21 @@ public class HoaDonController implements Initializable {
     @FXML
     public void addHoaDon(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         TableInfo tb = tbTableInfo.getSelectionModel().getSelectedItem();
-        int id = tb.getMaBan();
-        hdDAO = new HoaDonDAO();
-        if (hdDAO.insertHoaDon(id)) {
+        if(!(tb != null)){
             sm = new SceneMovement();
-            sm.callConfirmAlert("Thêm thành công");
+            sm.callErrorAlert("Chọn Món muốn thêm!");
         } else {
-            sm = new SceneMovement();
-            sm.callErrorAlert("Thêm thất bại");
+            int id = tb.getMaBan();
+            hdDAO = new HoaDonDAO();
+            if (hdDAO.insertHoaDon(id)) {
+                sm = new SceneMovement();
+                sm.callConfirmAlert("Thêm thành công");
+            } else {
+                sm = new SceneMovement();
+                sm.callErrorAlert("Thêm thất bại");
+            }
         }
+        
         list1 = getHoaDon();
         loadHoaDon();
     }
@@ -147,7 +153,7 @@ public class HoaDonController implements Initializable {
     public void deleteHoaDonItem(ActionEvent event) throws ClassNotFoundException, SQLException, IOException {
         hdDAO = new HoaDonDAO();
         HoaDon hDon = listHoaDon.getSelectionModel().getSelectedItem();
-       
+       if(hDon != null){
         int id = hDon.getMaHoaDon();
         if (hdDAO.reverseHoaDonItem(id)) {
             sm = new SceneMovement();
@@ -155,7 +161,11 @@ public class HoaDonController implements Initializable {
         } else {
             sm = new SceneMovement();
             sm.callErrorAlert("Xóa thất bại");
-        }
+        }}
+       else{
+           sm = new SceneMovement();
+            sm.callErrorAlert("Chọn 1 hóa đơn muốn xóa");
+       }
           
         list1 = getHoaDon();
         loadHoaDon();
