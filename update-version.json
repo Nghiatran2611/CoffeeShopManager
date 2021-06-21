@@ -1,6 +1,6 @@
 {
   "versionName":"25.0",
-  "versionCode": "25",
+  "versionCode": 25,
   "apkUrl":"http://git.medihub.vn/medihub/MediHubSCRN/raw/master_flux4.0/app-release.apk",
   "forceUpdate": false
 }
